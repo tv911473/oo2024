@@ -6,40 +6,52 @@ public class Main {
         // KODUS: 3 funktsiooni, milles kasutatud vähemalt
         // nelja erinevat tyypi:
         // void, String, int, char, long, double, float, boolean
+
         // tagastab int     parameetriks boolean
         // tagastab void    parameetriks boolean, int
         // tagastab String  parameetriks String
 
         // teha igast funktsioonist 2 erineva sisendiga väljakutset
 
-        double kogumaksumus1 = arvutaTaksoMaksumus(3);
-        System.out.println(kogumaksumus1);
-        double kogumaksumus2 = arvutaTaksoMaksumus(2);
-        System.out.println(kogumaksumus2);
-        String hinnang1 = temperatuuriHinnang(-1.2);
+        int oige = oigeVoiVaar(true);
+        System.out.println(oige);
+        int vaar = oigeVoiVaar(false);
+        System.out.println(vaar);
+
+        String hinnang1 = stringFunc("algus");
         System.out.println(hinnang1);
-        String hinnang2 = temperatuuriHinnang(2.2);
+        String hinnang2 = stringFunc("lopp");
         System.out.println(hinnang2);
-        prindiForTsykkel("Pikk sona");
-        prindiForTsykkel("Lyhike sona");
+
+        forLoop(10, true);
+        System.out.println();
+        forLoop(20, false);
 
     }
     // Siia kirjutad koodi
-    private static double arvutaTaksoMaksumus(int tunnid) { // double on komakohaga arv
-        return 3 + 0.9*tunnid;
-    }
 
-    private static String temperatuuriHinnang(double temp) {
-        if (temp < 0) {
-            return "vesi on jääs";
+    private static int oigeVoiVaar(boolean sisend) { // double on komakohaga arv
+        if (sisend) {
+            return 1;
         } else {
-            return "on vesi";
+            return 0;
         }
     }
-    private static void prindiForTsykkel(String tahtedeArv) {
-        for (int i = 0; i < tahtedeArv.length(); i++) {
-            System.out.println(i);
 
+    private static String stringFunc(String sona) {
+        if (sona.equals("algus")) {
+            return "see on algus";
+        } else if (sona.equals("lopp")){
+            return "see on lopp";
+        } else {
+            return "";
+        }
+
+    }
+    private static void forLoop(int pikkus, boolean sisend) {
+        if (sisend)
+            for (int i = 0; i < pikkus; i++) {
+            System.out.println(i);
         }
     }
 }
