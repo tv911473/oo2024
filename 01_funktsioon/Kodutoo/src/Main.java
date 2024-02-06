@@ -18,10 +18,10 @@ public class Main {
         int vaar = oigeVoiVaar(false);
         System.out.println(vaar);
 
-        String hinnang1 = stringFunc("algus");
-        System.out.println(hinnang1);
-        String hinnang2 = stringFunc("lopp");
-        System.out.println(hinnang2);
+        String algus = stringFunc("algus");
+        System.out.println(algus);
+        String lopp = stringFunc("lopp");
+        System.out.println(lopp);
 
         forLoop(10, true);
         System.out.println();
