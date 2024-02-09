@@ -29,29 +29,28 @@ public class Main {
 
     }
     // Siia kirjutad koodi
-
-    private static int oigeVoiVaar(boolean sisend) { // double on komakohaga arv
+    private static int oigeVoiVaar(boolean sisend) { // double on komakohaga arv, int täisarv
         if (sisend) {
             return 1;
         } else {
             return 0;
         }
     }
-
     private static String stringFunc(String sona) {
         if (sona.equals("algus")) {
             return "see on algus";
         } else if (sona.equals("lopp")){
             return "see on lopp";
         } else {
-            return "";
+            return "sisesta sõna 'algus' või 'lopp'";
         }
-
     }
     private static void forLoop(int pikkus, boolean sisend) {
         if (sisend)
             for (int i = 0; i < pikkus; i++) {
             System.out.println(i);
+        } else {
+            System.out.println("sisendit ei loendata");
         }
     }
 }
