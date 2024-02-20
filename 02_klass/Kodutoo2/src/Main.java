@@ -7,9 +7,9 @@ public class Main {
         Kolmnurk kolmnurk2 = new Kolmnurk(2.5, 6.0, 7.2);
 
         double valjund1 = kolmnurk1.ymbermoot();
-        System.out.printf("%.2f\n", valjund1);
+        System.out.printf("Kolmnurga ümbermõõt: %.2f cm\n", valjund1);
 
         double valjund2 = kolmnurk2.pindala();
-        System.out.printf("%.2f\n", valjund2);
+        System.out.printf("Kolmnurga pindala: %.2f cm^2\n", valjund2);
     }
 }
