@@ -15,14 +15,11 @@ public class Maailm {
             for (int x = 0; x < kaardiLaius; x++) {
                 char symbol;
                 if (y == 0 || y == kaardiKorgus -1) {
-                    // System.out.print('-');
                     symbol = '-';
                 } else if (x == 0 || x == kaardiLaius -1) {
-                    // System.out.print('|');
                     symbol = '|';
                 } else {
                     symbol = ' ';
-                    // System.out.print(' ');
                     for (Ese e : esemed) {
                         if (e.xKoord == x && e.yKoord == y) {
                             symbol = e.symbol;

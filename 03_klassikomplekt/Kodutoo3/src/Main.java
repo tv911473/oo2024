@@ -12,6 +12,5 @@ public class Main {
         Auto auto2 = new Auto(andmed2, 30_000, "Moller Ulemiste");
         auto2.andmed.teineMudel("Passat");
         auto2.teineEsindus("Moller Mustamae");
-        System.out.println(auto2);
     }
 }
