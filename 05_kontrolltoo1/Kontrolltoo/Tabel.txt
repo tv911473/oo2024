@@ -1,0 +1,11 @@
+Lause           5               1              
+mis             3               0              
+sisaldab        8               2              
+a               1               1              
+tahti           5               1              
+igas            4               1              
+sonas           5               1              
+Sonade arv 'a'-tähtedega:
+0 a-tähte: 1 sõna.
+1 a-tähte: 5 sõna.
+2 a-tähte: 1 sõna.
