@@ -19,12 +19,4 @@ public class ToiduaineEntity {
     int valk;
     int rasv;
     int sysivesik;
-
-//    public ToiduaineEntity(String nimetus, int valk, int rasv, int sysivesik) {
-//        this.nimetus = nimetus;
-//        this.valk = valk;
-//        this.rasv = rasv;
-//        this.sysivesik = sysivesik;
-//    }
-
 }
