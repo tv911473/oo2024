@@ -26,7 +26,7 @@ public class NumbriController {
     // kustuta üks number listist
     @DeleteMapping("numbrid/{number}")
     public List<String> kustutaNumber(@PathVariable String number) {
-        numbrid.remove(number); // Remove the element by value
+        numbrid.remove(number);
         return numbrid;
     }
 

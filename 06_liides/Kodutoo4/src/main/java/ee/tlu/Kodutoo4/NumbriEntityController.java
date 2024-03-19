@@ -29,13 +29,14 @@ public class NumbriEntityController {
         return numbrid;
     }
 
-    // kustuta üks number listist
+    // kustuta üks väärtus listist
     @DeleteMapping("numbrid/{index}")
     public List<NumbriEntity> kustutaNumber(@PathVariable int index) {
         numbrid.remove(index);
         return numbrid;
     }
 
+    // muuda üks väärtus listis
     @PutMapping("numbrid")
     public List<NumbriEntity> muudaSisendit(
             @RequestParam int index,
