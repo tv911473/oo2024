@@ -60,6 +60,4 @@ public class NumbriEntityController {
         }
         return summa;
     }
-
-
 }

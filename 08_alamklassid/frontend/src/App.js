@@ -30,23 +30,26 @@ function App() {
   }
 
   function lisa() {
-    const toiduaine = {
-      "nimetus": nimiRef.current.value,
-      "valk": valkRef.current.value,
-      "rasv": rasvRef.current.value,
-      "sysivesik": süsivesikRef.current.value
-    }
-    fetch("http://localhost:8080/api/toiduained",
-    {
-      "method": "POST",
-      "body": JSON.stringify(toiduaine),
-      "headers": {"Content-Type": "application/json"}
-    })
-      .then(response => response.json())
-      .then(json => {
-        setKogus(json.length);
-        setToiduained(json);
+    if (nimiRef.current.value.trim() === "") {
+      const toiduaine = {
+        "nimetus": nimiRef.current.value,
+        "valk": valkRef.current.value,
+        "rasv": rasvRef.current.value,
+        "sysivesik": süsivesikRef.current.value
+      }
+      fetch("http://localhost:8080/api/toiduained",
+      {
+        "method": "POST",
+        "body": JSON.stringify(toiduaine),
+        "headers": {"Content-Type": "application/json"}
       })
+        .then(response => response.json())
+        .then(json => {
+          setKogus(json.length);
+          setToiduained(json);
+        })
+    }
+    
   }
 
   return (
