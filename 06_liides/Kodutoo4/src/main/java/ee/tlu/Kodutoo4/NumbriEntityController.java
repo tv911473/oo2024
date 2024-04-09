@@ -6,6 +6,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class NumbriEntityController {
     NumbriRepository numbriRepository;
     public NumbriEntityController (NumbriRepository numbriRepository) {
@@ -28,6 +29,12 @@ public class NumbriEntityController {
             ) {
         NumbriEntity sisend = new NumbriEntity(nimi, teine, kolmas);
         numbriRepository.save(sisend);
+        return numbriRepository.findAll();
+    }
+
+    @PostMapping("numbrid")
+    public List<NumbriEntity> lisaNumbreid(@RequestBody NumbriEntity numbriEntity) {
+        numbriRepository.save(numbriEntity);
         return numbriRepository.findAll();
     }
 

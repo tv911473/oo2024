@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@RestController // kontroller EHK front-end saab siit ligi
 @RequestMapping("/api") // lisab "toiduained" ette "api"
+@CrossOrigin(origins = "http://localhost:3000")
 public class ToiduaineEntityController {
 
     ToiduaineRepository toiduaineRepository;
@@ -88,6 +88,15 @@ public class ToiduaineEntityController {
         return toiduaineRepository.findAll().size();
     }
 
+    @GetMapping("toiduained-valk-min/{minValk}")
+    public List<ToiduaineEntity> toiduainedMinValk(@PathVariable int minValk) {
+        return toiduaineRepository.findAllByValkGreaterThan(minValk);
+    }
+
+    @GetMapping("toiduained-sysivesik/{min}/{max}")
+    public List<ToiduaineEntity> toiduainedMinValk(@PathVariable int min, @PathVariable int max) {
+        return toiduaineRepository.findAllBySysivesikBetween(min, max);
+    }
 }
 
 // 404 - URL ehk API otspunkt vale

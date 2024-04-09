@@ -1,33 +1,38 @@
 package ee.tlu.salat;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class ToiduKomponentController {
-    List<ToiduKomponent> toidukomponendid = new ArrayList<>();
 
-    // POST - Body - raw - JSON
-    // {"toiduaine":
-    //    {
-    //    "nimetus": "kartul",
-    //    "valk": 3,
-    //    "rasv": 3,
-    //    "sysivesik": 10
-    //    },
-    //    "kogus": 100
-    // }
-    @PostMapping("toidukomponent")
-    public List<ToiduKomponent> lisaToidukomponent(@RequestBody ToiduKomponent komponent) {
-        toidukomponendid.add(komponent);
-        return toidukomponendid;
+    @Autowired
+    ToiduKomponentRepository toiduKomponentRepository;
+
+    // Bean ---> automaatselt loodav klass kuo rakendus käivitub (new Class();)
+
+    // http://localhost:8080/toidukomponendid
+    @GetMapping("toidukomponendid")
+    public List<ToiduKomponent> getToiduKomponents() {
+        return toiduKomponentRepository.findAll();
     }
 
-    @PutMapping("toidukomponent/{index}")
-    public List<ToiduKomponent> muudaToidukomponent(@PathVariable int index, @RequestBody ToiduKomponent komponent) {
-        toidukomponendid.add(index, komponent);
-        return toidukomponendid;
+    @DeleteMapping("toidukomponendid/{id}")
+    public List<ToiduKomponent> deleteToiduKomponent(@PathVariable Long id) { // Long on ToiduKomponentRepository
+        toiduKomponentRepository.deleteById(id);
+        return toiduKomponentRepository.findAll();
+    }
+    // POST
+    // {
+    //    "toiduaine": {"nimetus": "test1"},
+    //    "kogus": 100
+    // }
+    @PostMapping("toidukomponendid")
+    public List<ToiduKomponent> postToiduKomponent(@RequestBody ToiduKomponent toiduKomponent) {
+        toiduKomponentRepository.save(toiduKomponent);
+        return toiduKomponentRepository.findAll();
     }
 }
