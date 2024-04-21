@@ -1,5 +1,7 @@
-package ee.tlu.Kodutoo4;
+package ee.tlu.Kodutoo4.controller;
 
+import ee.tlu.Kodutoo4.entity.AsjadeKogus;
+import ee.tlu.Kodutoo4.repository.AsjadeKogusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

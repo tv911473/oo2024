@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +49,7 @@ public class RestTemplateController {
         return kasutajaPostitused;
     }
 
+    // https://www.omniva.ee/locations.json
     @GetMapping("omniva")
     public List<Omniva> getOmnivaPA() {
         RestTemplate restTemplate = new RestTemplate();

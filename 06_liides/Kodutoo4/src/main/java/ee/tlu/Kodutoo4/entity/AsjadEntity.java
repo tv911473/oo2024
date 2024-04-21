@@ -1,4 +1,4 @@
-package ee.tlu.Kodutoo4;
+package ee.tlu.Kodutoo4.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AsjadEntity {
     @Id
-    String nimi;
-    int pikkus;
-    int laius;
+    private String nimi;
+    private int pikkus;
+    private int laius;
 
 }

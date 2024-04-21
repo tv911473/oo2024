@@ -1,9 +1,13 @@
-package ee.tlu.Kodutoo4;
+package ee.tlu.Kodutoo4.controller;
 
+import ee.tlu.Kodutoo4.entity.AsjadEntity;
+import ee.tlu.Kodutoo4.repository.AsjadRepository;
+import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Getter
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -63,7 +67,7 @@ public class AsjadEntityController {
         int summa = 0;
         List<AsjadEntity> asjad = asjadRepository.findAll();
         for (AsjadEntity sisend : asjad) {
-            summa += sisend.pikkus + sisend.laius;
+            summa += sisend.getPikkus() + sisend.getLaius();
         }
         return summa;
     }
