@@ -4,21 +4,21 @@ import { useEffect, useRef, useState} from 'react';
 
 function App() {
   const [kogus, setKogus] = useState(0); // HTMLs esinevad muutujad peavad olema useState sees
-  const [numbrid, setNumbrid] = useState([]);
+  const [asjad, setAsjad] = useState([]);
   const nimiRef = useRef();
-  const teineRef = useRef();
-  const kolmasRef = useRef();
+  const pikkusRef = useRef();
+  const laiusRef = useRef();
   const [asjadekogus, setAsjadeKogus] = useState([]);
   const akNimiRef = useRef();
   const akKogusRef = useRef();
 
   // uef
   useEffect(() => {
-    fetch("http://localhost:8080/api/numbrid")
+    fetch("http://localhost:8080/api/asjad")
       .then(response => response.json())
       .then(json => {
         setKogus(json.length);
-        setNumbrid(json);
+        setAsjad(json);
       }) // body
   }, []);
 
@@ -32,11 +32,11 @@ function App() {
   }, []);
 
   function kustuta(voti) {
-    fetch("http://localhost:8080/api/numbrid/" + voti, {"method": "DELETE"})
+    fetch("http://localhost:8080/api/asjad/" + voti, {"method": "DELETE"})
       .then(response => response.json())
       .then(json => {
         setKogus(json.length);
-        setNumbrid(json);
+        setAsjad(json);
       })
   }
 
@@ -46,11 +46,11 @@ function App() {
     }
     const asi = {
       "nimi": nimiRef.current.value,
-      "teine": teineRef.current.value,
-      "kolmas": kolmasRef.current.value,
+      "pikkus": pikkusRef.current.value,
+      "laius": laiusRef.current.value,
 
     }
-    fetch("http://localhost:8080/api/numbrid",
+    fetch("http://localhost:8080/api/asjad",
     {
       "method": "POST",
       "body": JSON.stringify(asi),
@@ -59,12 +59,12 @@ function App() {
       .then(response => response.json())
       .then(json => {
         setKogus(json.length);
-        setNumbrid(json);
+        setAsjad(json);
       })
   }
   function lisaAK() {
     const lisatavAK = {
-      "number": {"nimi": akNimiRef.current.value},
+      "asi": {"nimi": akNimiRef.current.value},
       "kogus": akKogusRef.current.value
     }
     fetch("http://localhost:8080/asjadekogus",
@@ -93,14 +93,14 @@ function App() {
       <br /><br />
       <label>Nimi</label> <br />
       <input ref={nimiRef} type="text" /> <br />
-      <label>Teine</label> <br />
-      <input ref={teineRef} type="text" /> <br />
-      <label>Kolmas</label> <br />
-      <input ref={kolmasRef} type="text" /> <br />
+      <label>Pikkus</label> <br />
+      <input ref={pikkusRef} type="text" /> <br />
+      <label>Laius</label> <br />
+      <input ref={laiusRef} type="text" /> <br />
       <button onClick={() => lisa()}>Sisesta</button> <br />
       <br />
 
-      {numbrid.map(n => <div>{n.nimi} | {n.teine} | {n.kolmas} <button onClick={() => kustuta(n.nimi)}>x</button> </div>)}
+      {asjad.map(a => <div>{a.nimi} | {a.pikkus} | {a.laius} <button onClick={() => kustuta(a.nimi)}>x</button> </div>)}
       <hr />
 
       <label>Asja nimi</label> <br />
@@ -109,7 +109,7 @@ function App() {
       <input ref={akKogusRef} type="text" /> <br />
       <button onClick={() => lisaAK()}>Sisesta</button> <br />
 
-      {asjadekogus.map(ak => <div>{ak.id} | {ak.numbrid?.nimi} | {ak.kogus} | <button onClick={() => kustutaAK(ak.id)}>x</button> </div>)}
+      {asjadekogus.map(ak => <div>{ak.id} | {ak.asjad?.nimi} | {ak.kogus} | <button onClick={() => kustutaAK(ak.id)}>x</button> </div>)}
 
     </div>
   );

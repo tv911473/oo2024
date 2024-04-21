@@ -1,4 +1,4 @@
-package ee.tlu.salat;
+package ee.tlu.salat.entity;
 
 // jpa moodulist pärinev Hibernate.
 import jakarta.persistence.Entity;
@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ToiduaineEntity {
     @Id // alati unikaalne - kustutamiseks, võtmiseks, muutmiseks
-    String nimetus;
-    int valk;
-    int rasv;
-    int sysivesik;
+    private String nimetus;
+    private int valk;
+    private int rasv;
+    private int sysivesik;
 }

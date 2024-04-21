@@ -14,6 +14,6 @@ public class AsjadeKogus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @ManyToOne
-    NumbriEntity number;
+    AsjadEntity asi;
     int kogus;
 }

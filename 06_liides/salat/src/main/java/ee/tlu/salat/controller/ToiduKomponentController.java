@@ -1,5 +1,7 @@
-package ee.tlu.salat;
+package ee.tlu.salat.controller;
 
+import ee.tlu.salat.entity.ToiduKomponent;
+import ee.tlu.salat.repository.ToiduKomponentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

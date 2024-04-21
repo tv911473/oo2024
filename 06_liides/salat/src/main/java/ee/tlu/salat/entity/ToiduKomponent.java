@@ -1,11 +1,10 @@
-package ee.tlu.salat;
+package ee.tlu.salat.entity;
 
+import ee.tlu.salat.entity.ToiduaineEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -15,9 +14,10 @@ public class ToiduKomponent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @ManyToOne
+    @ManyToOne // (cascade = CascadeType.ALL) // kui kustutatakse toiduaine, siis kustuvad ka seotud toidukomponendid
     ToiduaineEntity toiduaine;
     int kogus;
+
     // @ManyToMany
     // List<ToiduaineEntity> toiduained;
 

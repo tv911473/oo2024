@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-@Table(name = "numbrid")
+@Table(name = "asjad")
 @Entity
 @NoArgsConstructor
-public class NumbriEntity {
+public class AsjadEntity {
     @Id
     String nimi;
-    int teine;
-    int kolmas;
+    int pikkus;
+    int laius;
 
 }

@@ -1,5 +1,6 @@
-package ee.tlu.salat;
+package ee.tlu.salat.controller;
 
+import ee.tlu.salat.entity.ToiduKomponent;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +10,6 @@ import java.util.List;
 public class ToiduKomponentController2 {
     List<ToiduKomponent> toidukomponendid = new ArrayList<>();
 
-    // POST - Body - raw - JSON
-    // {"toiduaine":
-    //    {
-    //    "nimetus": "kartul",
-    //    "valk": 3,
-    //    "rasv": 3,
-    //    "sysivesik": 10
-    //    },
-    //    "kogus": 100
-    // }
     @PostMapping("toidukomponent")
     public List<ToiduKomponent> lisaToidukomponent(@RequestBody ToiduKomponent komponent) {
         toidukomponendid.add(komponent);

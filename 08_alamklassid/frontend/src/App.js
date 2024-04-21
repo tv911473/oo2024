@@ -113,7 +113,7 @@ function App() {
       <input ref={taKogusRef} type="text" /> <br />
       <button onClick={() => lisaTK()}>Sisesta</button> <br />
 
-      {toidukomponendid.map(tk => <div>{tk.id} | {tk.toiduaine?.nimetus} | {tk.kogus} | <button onClick={() => kustutaTK(tk.id)}>x</button> </div>)}
+      {toidukomponendid.map(tk => <div>{tk.id} | {tk.toiduaine?.nimetus} | {tk.toiduaine?.valk} | {tk.kogus} | <button onClick={() => kustutaTK(tk.id)}>x</button> </div>)}
 
     </div>
   );

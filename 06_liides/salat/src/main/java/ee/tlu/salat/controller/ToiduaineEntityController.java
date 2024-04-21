@@ -1,5 +1,7 @@
-package ee.tlu.salat;
+package ee.tlu.salat.controller;
 
+import ee.tlu.salat.entity.ToiduaineEntity;
+import ee.tlu.salat.repository.ToiduaineRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,7 +52,7 @@ public class ToiduaineEntityController {
     //}
     @PostMapping("toiduained")
     public List<ToiduaineEntity> lisaToiduained(@RequestBody ToiduaineEntity toiduaineEntity) {
-        if (toiduaineEntity.valk + toiduaineEntity.rasv + toiduaineEntity.sysivesik > 100) {
+        if (toiduaineEntity.getValk() + toiduaineEntity.getRasv() + toiduaineEntity.getSysivesik() > 100) {
             return toiduaineRepository.findAll();
         }
         // ToiduaineEntity toiduaine = new ToiduaineEntity(nimetus, valk, rasv, sysivesik);
