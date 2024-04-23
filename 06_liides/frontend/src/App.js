@@ -109,7 +109,7 @@ function App() {
       <input ref={akKogusRef} type="text" /> <br />
       <button onClick={() => lisaAK()}>Sisesta</button> <br />
 
-      {asjadekogus.map(ak => <div>{ak.id} | {ak.asjad?.nimi} | {ak.kogus} | <button onClick={() => kustutaAK(ak.id)}>x</button> </div>)}
+      {asjadekogus.map(ak => <div>{ak.id} | {ak.asi?.nimi} | {ak.kogus} | <button onClick={() => kustutaAK(ak.id)}>x</button> </div>)}
 
     </div>
   );
