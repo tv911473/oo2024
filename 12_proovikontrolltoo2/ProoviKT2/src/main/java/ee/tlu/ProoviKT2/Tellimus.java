@@ -9,13 +9,12 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Kategooria {
+public class Tellimus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nimi;
+    private String tellija;
 
-    // @ManyToMany --> teeb kahe tabeli siduvuse Toode_id ja Kategooria_id kaudu( tabel - Toode_Kategooria. (SQL relation N:M))
-    // List<Toode> tooted;
+    @ManyToMany
+    private List<Toode> tooted;
 }
-

@@ -19,9 +19,11 @@ public class RestTemplateController {
     @GetMapping("hankija-tooted")
     public List<Product> hankijaTooted() {
 
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Product[]> response = restTemplate
-                .exchange("https://fakestoreapi.com/products", HttpMethod.GET, null, Product[].class);
+        RestTemplate restTemplate = new RestTemplate(); // RestTemplate on class, tuleb importida
+        // restTemplate.exchange(1, 2, 3, 4)
+        // 1. aadress kuhu,    2. meetod mida teeme (meie teeme alati GET)
+        // 3. mida kaasa saadan (Body, Headerid), 4. mis objekti kujul saame andmed ([] on array)
+        ResponseEntity<Product[]> response = restTemplate.exchange("https://fakestoreapi.com/products", HttpMethod.GET, null, Product[].class);
 
         return Arrays.asList(response.getBody());
     }
@@ -30,8 +32,7 @@ public class RestTemplateController {
     public List<Product> hankijaTootedKindlaReitinguga(@PathVariable double reiting) {
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Product[]> response = restTemplate
-                .exchange("https://fakestoreapi.com/products", HttpMethod.GET, null, Product[].class);
+        ResponseEntity<Product[]> response = restTemplate.exchange("https://fakestoreapi.com/products", HttpMethod.GET, null, Product[].class);
 
         List<Product> sobilikudTooted = new ArrayList<>();
         for (Product p : response.getBody()) {

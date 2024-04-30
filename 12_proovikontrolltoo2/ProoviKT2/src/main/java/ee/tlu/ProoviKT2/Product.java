@@ -12,5 +12,5 @@ public class Product {
     public String description;
     public String category;
     public String image;
-    public Rating rating;
+    public Rating rating; // Rating class
 }

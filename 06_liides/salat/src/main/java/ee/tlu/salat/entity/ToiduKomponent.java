@@ -14,13 +14,17 @@ public class ToiduKomponent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     @ManyToOne // (cascade = CascadeType.ALL) // kui kustutatakse toiduaine, siis kustuvad ka seotud toidukomponendid
     ToiduaineEntity toiduaine;
-    int kogus;
+
+//    @ManyToOne
+//    Toit toit;
+
 
     // @ManyToMany
     // List<ToiduaineEntity> toiduained;
-
+    int kogus;
 
     // {id: 5, toiduaine: {nimetus: "test"}, kogus: 100}
     // 5    |   "test"  |   100
